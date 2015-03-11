@@ -4,6 +4,5 @@ D:\Personal Stuff\Barrack\OpenSource\Xamarin.Controls\Xamarin.Controls\bin\Debug
 D:\Personal Stuff\Barrack\OpenSource\Xamarin.Controls\Xamarin.Controls\bin\Debug\Xamarin.Forms.Xaml.dll
 D:\Personal Stuff\Barrack\OpenSource\Xamarin.Controls\Xamarin.Controls\bin\Debug\Xamarin.Forms.Core.xml
 D:\Personal Stuff\Barrack\OpenSource\Xamarin.Controls\Xamarin.Controls\bin\Debug\Xamarin.Forms.Xaml.xml
-D:\Personal Stuff\Barrack\OpenSource\Xamarin.Controls\Xamarin.Controls\obj\Debug\Xamarin.Controls.csprojResolveAssemblyReference.cache
 D:\Personal Stuff\Barrack\OpenSource\Xamarin.Controls\Xamarin.Controls\obj\Debug\Xamarin.Controls.dll
 D:\Personal Stuff\Barrack\OpenSource\Xamarin.Controls\Xamarin.Controls\obj\Debug\Xamarin.Controls.pdb

@@ -1,36 +1,36 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Reflection;
 using Xamarin.Forms;
-using System.Collections.Generic;
-using System;
 
 namespace Xamarin.Controls
 {
     public class BindablePicker : Picker
     {
         #region Constructor
+
         public BindablePicker()
         {
             SelectedIndexChanged += OnSelectionChanged;
         }
 
-        #endregion
+        #endregion Constructor
 
         #region Fields
 
         //Bindable property for the items source
-        public static readonly BindableProperty ItemsSourceProperty =
-            BindableProperty.Create<BindablePicker, IList>(p => p.ItemsSource, null, propertyChanged: OnItemsSourcePropertyChanged);
-
-        //Bindable property for the items source
         public static readonly BindableProperty DisplayMemberBindingProperty =
-            BindableProperty.Create<BindablePicker, string>(p => p.DisplayMemberBinding, null, BindingMode.TwoWay, propertyChanged: OnDisplayMemberBindingChanged);
+            BindableProperty.Create<BindablePicker, string>(p => p.DisplayMemberBinding, string.Empty, BindingMode.TwoWay);
 
         //Bindable property for the selected item
         public static readonly BindableProperty SelectedItemProperty =
             BindableProperty.Create<BindablePicker, object>(p => p.SelectedItem, null, BindingMode.TwoWay, propertyChanged: OnSelectedItemPropertyChanged);
+
+        //Bindable property for the items source
+        public static readonly BindableProperty ItemsSourceProperty =
+            BindableProperty.Create<BindablePicker, IList>(p => p.ItemsSource, null, propertyChanged: OnItemsSourcePropertyChanged);
 
         #endregion Fields
 
@@ -69,7 +69,6 @@ namespace Xamarin.Controls
         #endregion Properties
 
         #region Methods
-
 
         /// <summary>
         /// Called when [items source property changed].
@@ -110,41 +109,30 @@ namespace Xamarin.Controls
 
             picker.Items.Clear();
 
-            foreach (var item in newValue)
-            {
-                try
+            if (string.IsNullOrWhiteSpace(picker.DisplayMemberBinding))
+                foreach (var item in newValue)
+                    picker.Items.Add(item as string);
+            else
+                foreach (var item in newValue)
                 {
-                    List<FieldInfo> fields = item.GetType().GetRuntimeFields().ToList();
-                    var actualValue = string.Empty;
-                    foreach (FieldInfo field in fields.ToList())
+                    try
                     {
-                        if (field.Name.Contains(picker.DisplayMemberBinding))
+                        List<FieldInfo> fields = item.GetType().GetRuntimeFields().ToList();
+                        var actualValue = string.Empty;
+                        foreach (FieldInfo field in fields.ToList())
                         {
-                            actualValue = field.GetValue(item).ToString();
+                            if (field.Name.Contains(picker.DisplayMemberBinding))
+                            {
+                                actualValue = field.GetValue(item).ToString();
+                            }
                         }
+                        picker.Items.Add((actualValue ?? "").ToString());
                     }
-                    picker.Items.Add((actualValue ?? "").ToString());
+                    catch (System.Exception)
+                    {
+                        throw;
+                    }
                 }
-                catch (System.Exception exc)
-                {
-                    var asdf = exc;
-                }
-            }
-        }
-
-        private static void OnPageAppearing(object sender, System.EventArgs e)
-        {
-        }
-
-        /// <summary>
-        /// Called when [items source property changed].
-        /// </summary>
-        /// <param name="bindable">The bindable.</param>
-        /// <param name="value">The value.</param>
-        /// <param name="newValue">The new value.</param>
-        private static void OnDisplayMemberBindingChanged(BindableObject bindable, string value, string newValue)
-        {
-            var asdf = bindable;
         }
 
         /// <summary>

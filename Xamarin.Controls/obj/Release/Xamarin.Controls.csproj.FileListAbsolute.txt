@@ -1,0 +1,8 @@
+D:\Personal Stuff\Barrack\OpenSource\Xamarin.Controls\Xamarin.Controls\bin\Release\Xamarin.Controls.dll
+D:\Personal Stuff\Barrack\OpenSource\Xamarin.Controls\Xamarin.Controls\bin\Release\Xamarin.Controls.pdb
+D:\Personal Stuff\Barrack\OpenSource\Xamarin.Controls\Xamarin.Controls\bin\Release\Xamarin.Forms.Core.dll
+D:\Personal Stuff\Barrack\OpenSource\Xamarin.Controls\Xamarin.Controls\bin\Release\Xamarin.Forms.Xaml.dll
+D:\Personal Stuff\Barrack\OpenSource\Xamarin.Controls\Xamarin.Controls\bin\Release\Xamarin.Forms.Core.xml
+D:\Personal Stuff\Barrack\OpenSource\Xamarin.Controls\Xamarin.Controls\bin\Release\Xamarin.Forms.Xaml.xml
+D:\Personal Stuff\Barrack\OpenSource\Xamarin.Controls\Xamarin.Controls\obj\Release\Xamarin.Controls.dll
+D:\Personal Stuff\Barrack\OpenSource\Xamarin.Controls\Xamarin.Controls\obj\Release\Xamarin.Controls.pdb
